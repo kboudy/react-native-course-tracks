@@ -1,4 +1,4 @@
-# react-native-course-blog-app
+# react-native-course-tracks
 
 - navigation
   ![alt text](https://github.com/kboudy/react-native-course-tracks/blob/master/readme_images/navigators.png)
