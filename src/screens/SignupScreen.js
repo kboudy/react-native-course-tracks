@@ -1,44 +1,26 @@
 import React, { useState, useContext } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Text, Input, Button } from 'react-native-elements';
-import Spacer from '../components/spacer';
 import { Context as AuthContext } from '../context/AuthContext';
+import { NavigationEvents } from 'react-navigation';
+import AuthForm from '../components/AuthForm';
+import NavLink from '../components/NavLink';
 
 const SignupScreen = ({ navigation }) => {
-  const { state, signup } = useContext(AuthContext);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  console.log(state);
+  const { state, signup, clearErrorMessage } = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
-      <Spacer>
-        <Text h3>Sign Up for Tracker</Text>
-      </Spacer>
-
-      <Input
-        label="Email"
-        autoCapitalize={'none'}
-        autoCorrect={false}
-        value={email}
-        onChangeText={setEmail}
+      <NavigationEvents onWillBlur={clearErrorMessage} />
+      <AuthForm
+        headerText="Sign Up for Tracker"
+        errorMessage={state.errorMessage}
+        submitButtonText="Sign Up"
+        onSubmit={signup}
       />
-      <Spacer />
-      <Input
-        secureTextEntry
-        label="Password"
-        autoCapitalize={'none'}
-        autoCorrect={false}
-        value={password}
-        onChangeText={setPassword}
+      <NavLink
+        routeName="Signin"
+        text="Already have an account? Sign in instead"
       />
-      {state.errorMessage ? (
-        <Text style={styles.errorMessage}>{state.errorMessage}</Text>
-      ) : null}
-      <Spacer>
-        <Button title="Sign Up" onPress={() => signup({ email, password })} />
-      </Spacer>
     </View>
   );
 };
@@ -51,10 +33,9 @@ SignupScreen.navigationOptions = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 200,
+    marginBottom: 250,
     flex: 1,
     justifyContent: 'center'
-  },
-  errorMessage: { fontSize: 16, color: 'red', marginLeft: 15, marginTop: 15 }
+  }
 });
 export default SignupScreen;
