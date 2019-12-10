@@ -1,7 +1,7 @@
 # react-native-course-tracks
 
 - navigation
-  ![alt text](https://github.com/kboudy/react-native-course-tracks/blob/master/readme_images/navigators.png)
+  ![](https://github.com/kboudy/react-native-course-tracks/blob/master/readme_images/navigators.png)
 
 * need to install react navigation like this:
 
@@ -28,3 +28,6 @@ cd track-server && node index.js
 ```sh
 npm start
 ```
+
+- Location Architecture
+  ![](https://github.com/kboudy/react-native-course-tracks/blob/master/readme_images/locationArchitecture.png)
