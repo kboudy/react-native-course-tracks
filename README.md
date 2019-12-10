@@ -5,15 +5,26 @@
 
 * need to install react navigation like this:
 
+* to recreate/duplicate this project from nothing:
+
 ```sh
+npx expo-cli init someProjectName
 npm i react-navigation
 npx expo-cli install react-native-gesture-handler react-native-reanimated react-navigation-stack react-navigation-tabs
+npx expo-cli install react-native-maps
+npx expo-cli install expo-location
 ```
 
-- need to use these react-navigation imports:
+- dev environment requires three terminals:
 
-```js
-import { createAppContainer, createSwitchNavigator } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
-import { createBottomTabNavigator } from "react-navigation-tabs";
+```sh
+ngrok http 3000 # note the url you get, and update tracker.js
+```
+
+```sh
+cd track-server && node index.js
+```
+
+```sh
+npm start
 ```
